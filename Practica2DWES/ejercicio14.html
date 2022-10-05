@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let total = 0
+        function esprimo(num){
+            for (let x = 2; x < num / 2; x++) {
+
+
+if (num % x == 0)
+
+  return false;
+
+}
+
+
+return true;
+
+}
+
+        for (let index = 1; index < 200; index++) {
+            if(index%5 == 0){
+
+                console.log(index)
+                
+            }
+            if(esprimo(index)){
+
+            total ++
+
+
+            }
+        }
+console.log(total)
+
+
+    </script>
+    
+</body>
+</html>

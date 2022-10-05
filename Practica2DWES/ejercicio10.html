@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label>Introduce un numero de 1 o 2 o 3 cifras</label>
+    <input type="text" id="1">
+    <button id="paco" onclick="calcular(event)">Descubrir</button>
+
+    <script>
+
+let button = document.getElementById(paco)
+
+function calcular(){
+
+    let num1 = parseInt(document.getElementById("1").value)
+    
+    if(num1 < 1000 && num1 >= 0 && num1 >= 10 && num1 < 100){
+
+        alert("el numero tiene dos cifras")
+
+
+    } else if(num1 < 1000 && num1 >= 0 && num1 < 10){
+
+        alert("el numero tiene un cifra")
+
+    }
+    else if(num1 < 1000 && num1 > 0 && num1 >= 100){
+
+
+            alert("el numero tiene tres cifras")
+
+        }
+    else{
+
+        alert("formato inválido")
+    }
+
+}
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="dia">
+    <input type="text" id="mes">
+    <input type="text" id="año">
+    <button onclick="navidad(event)" id="button">¿ Navidad ?</button>
+
+    <script>
+
+        let button = document.getElementById(button)
+
+        function navidad (){
+            
+            let dia = parseInt(document.getElementById("dia").value)
+            let mes = parseInt(document.getElementById("mes").value)
+            let año = parseInt(document.getElementById("año").value)
+            
+            if(dia == 25 && mes == 12){
+
+                alert("Feliz Navidad 25-12-"+ año)
+
+
+            } else{
+
+                alert(dia + "-" +mes + "-" + año + "No es Navidad :(")
+
+
+            }
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

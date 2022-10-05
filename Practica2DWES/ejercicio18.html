@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Sueldo</label>
+    <input type="text" id="1">
+    <label>Antigüedad</label>
+    <input type="text" id="2">
+    <button onclick= calcular(event)>Calcular sueldo actualizado</button>
+    <script>
+
+        function calcular(){
+            let sueldo = parseInt(document.getElementById("1").value)
+            let ant = parseInt(document.getElementById("2").value)
+        
+           if(sueldo < 1000 && ant >= 10){
+
+            alert(sueldo + sueldo * 0.2)
+
+           } else if(sueldo < 1000 && ant < 10){
+
+            alert(sueldo + sueldo * 0.05)
+
+           } else {
+            alert(sueldo)
+
+
+
+           }
+
+        }
+
+
+
+
+    </script>
+
+    
+</body>
+</html>

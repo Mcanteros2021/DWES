@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="1">
+    <input type="text" id="2">
+    <button type="button" id="button">¿ Quien es el mayor ?</button>
+
+    <script>
+
+        var button = document.getElementById("button")
+        button.addEventListener("click", ()=>{
+
+            let num1 = document.getElementById("1").value
+            let num2 = document.getElementById("2").value
+
+            if(num1 > num2){
+                alert("El numero "+ num1 + " es mayor que el "+ num2)
+            }else{
+                alert("El numero "+ num2 + " es mayor que el "+ num1)
+            }
+
+
+        })
+
+
+    </script>
+
+    
+</body>
+</html>

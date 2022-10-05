@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Nombre</label>
+    <input type="text" id="1">
+    <label>Cantidad total de preguntas</label>
+    <input type="text" id="2">
+    <label>Cantidad de preguntas correctas</label>
+    <input type="text" id="3">
+    <button onclick= calcular(event)>Comprobar nivel</button>
+    <script>
+
+        function calcular(){
+            let nombre = document.getElementById("1").value
+            let preguntas = parseInt(document.getElementById("2").value)
+            let correctas = parseInt(document.getElementById("3").value)
+            let porcentaje = correctas * 100 / preguntas
+            if(porcentaje >= 90){
+                alert("Nivel Superior")
+            } else if(porcentaje < 90 && porcentaje >= 75){
+
+                alert("Nivel medio")
+
+            }else if(porcentaje < 75 && porcentaje >= 50){
+
+                alert("Nivel bajo")
+
+
+            } else if (porcentaje <=50){
+
+                alert("Fuera de nivel")
+
+            }
+
+        }
+
+
+
+
+    </script>
+
+    
+</body>
+</html>

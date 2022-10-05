@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Edad</label>
+    <input type="text" id="1">
+    <label>Nombre</label>
+    <input type="text" id="2">
+    <button type="button" onclick="calcular(event)" id="button">¿ Cuantos dias has vivido ?</button>
+ 
+<script>
+
+    let button = document.getElementById(button)
+
+    function calcular(){
+
+        let num1 = parseInt(document.getElementById("1").value)
+        let text = document.getElementById("2").value
+        let dias = num1 * 365
+        if(num1 >= 18)   {
+
+        alert(text + "eres mayor y has vivido "+dias + "dias")
+
+
+
+        } else{
+
+            alert(text + "eres menor y has vivido "+dias + "dias")
+
+
+        }
+
+    }
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

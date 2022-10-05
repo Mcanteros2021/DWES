@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Mes</label>
+    <input type="text" id="1">
+    <label>Año</label>
+    <input type="text" id="2">
+    <button onclick= calcular(event)>Calcular dias</button>
+    <script>
+
+        function calcular(){
+            let mes = parseInt(document.getElementById("1").value)
+            let año = parseInt(document.getElementById("2").value)
+            if(año % 4 == 0 && mes == 2){
+                alert("Tiene 29 días maldito febrero")
+
+
+            }else 
+           { switch (mes){
+                case 1:
+                    alert("Tiene 31 días")
+                    break;
+                case 2: 
+                    alert("Tiene 28 días")
+                    break;
+                case 3:
+                    alert("Tiene 31 días")
+                    break;
+                case 4: 
+                alert("Tiene 30 días")
+                break;
+                case 5:
+                    alert("Tiene 31 días")
+                    break;
+                    case 6:
+                        alert("Tiene 30 días")
+                        break;
+                        case 7:alert("Tiene 30 días")
+                        break;
+                        case 8: alert("Tiene 30 días")
+                        break;
+                        case 9: alert("Tiene 30 días")
+                        break;
+                        case 10: alert("tiene 31 días")
+                        break;
+                        case 11: alert("tiene 30 días")
+                        break;
+                        case 12: alert("tiene 31 dias")
+                        break;
+
+
+
+            }}
+        
+          
+
+        }
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

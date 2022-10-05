@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="1">
+    <button onclick="walterWhite(event)">Introduzca un dia de la semana</button>
+    <script>
+
+
+        function walterWhite (){
+            let dia = document.getElementById("1").value
+        if(dia == "lunes"){
+            alert("El siguiente dia es Martes")
+
+        }else if(dia == "martes"){
+            alert("El siguiente dia es Miercoles")
+
+        }else if(dia == "miercoles"){
+            alert("El siguiente dia es Jueves")
+
+        }else if(dia == "jueves"){
+            alert("El siguiente dia es Viernes")
+
+        }else if(dia == "viernes"){
+            alert("El siguiente dia es Sabado")
+
+        }else if(dia == "sabado"){
+            alert("El siguiente dia es Domingo")
+
+        }else if(dia == "domingo"){
+            alert("El siguiente dia es Lunes")
+
+        }else {
+
+            alert("No existe el dia de la semana introducido")
+        }
+
+
+
+
+        }
+       
+    </script>
+    
+</body>
+</html>

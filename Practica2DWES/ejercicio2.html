@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="insertar nombre..." type="text" id="nombre">
+    <button onclick="insertarNombre(event)" id="button">Insertar</button>
+    <ul id="lista">
+    </ul>
+
+    <script>
+
+        function insertarNombre(evt){
+
+            let nombre = document.getElementById("nombre").value
+
+            let opcion = "<li>" + nombre + "</li>"
+
+            let lista = document.getElementById("lista")
+
+            lista.innerHTML += opcion
+
+
+
+        }
+       
+
+        
+    </script>
+
+    
+
+
+
+</body>
+</html>
