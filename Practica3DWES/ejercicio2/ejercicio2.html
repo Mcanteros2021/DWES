@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ejercicio1.css">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h1>Formularios, Validaciones</h1>
+    <form id="Ej1" action=""></form>
+    
+    <h2>Registro</h2>
+    
+    <div class="columna">
+        <label for="nombre"><strong>Escribe tu nombre: </strong><input type="text" id="nombre"></label>
+
+        <label for="apellido"><strong>Escribe tus apellidos:</strong> <input type="text"  id="apellido"></label>
+        
+        <label for="email"><strong>Escribe tu Email: </strong><input type="text" id="email"></label>
+        
+        <label for="web"><strong>Web pesonal:</strong> <input type="text"  id="web"></label>
+        
+        <button type='submit' onclick="regist()">Enviar</button>
+    </form>
+    </div>
+   
+    <script>
+
+        function regist(){
+            const $FORM = document.getElementById('Ej1')
+            const $name = document.getElementById("nombre")
+            const $surname = document.getElementById("apellido")
+            const $email = document.getElementById("email")
+            const $web = document.getElementById("web")
+           
+                function isValidName(name){
+                    const validacion = /^[a-zA-Z]+\.?(( |\-)[a-zA-Z]+\.?)$/
+                    return validacion.test(name)
+                }
+                function isValidSurname(surname){
+                    const validacion = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)$/
+                    return validacion.test(surname)
+                }
+                function isValidEmail(email){
+                    const validacion = /^[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i
+                    return validacion.test(email)
+                }
+                function isValidWeb(web){
+                    const validacion = /^http:\/\/www\.[A-Za-z0-9]+\.[a-zA-Z]+$/i
+                    return validacion.test(web)
+                }
+          
+                const name = $name.value
+                const surname = $surname.value
+                const email = $email.value
+                const web = $web.value
+               
+    
+               
+                if(name == false|| isValidName(name) == false){
+                    alert("El nombre no debe estar vacío y tiene que ser válido")
+                }
+                if(surname == false|| isValidSurname(surname) == false){
+                    alert("El apellido no debe estar vacío y tiene que ser válido")
+                }
+                if(email == false|| isValidEmail(email) == false){
+                    alert("El email no debe estar vacío y tiene que ser válido")
+                }
+                if(web == false|| isValidWeb(web) == false){
+                    alert("La pagina web no debe estar vacío y tiene que ser válido")
+                }
+    
+                var regUsuario = {nombre:name, apellido:surname, email:email, web: web};
+                console.log(regUsuario);
+                var newUser = JSON.stringify(regUsuario);
+                console.log(newUser);
+    
+        }
+    
+    </script>
+</body>
+</html>

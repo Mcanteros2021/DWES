@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ejercicio1.css">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h1>Formularios, Validaciones</h1>
+    <form id="Ej1" action=""></form>
+    <fieldset>
+    <h2>Registro</h2>
+    <div class="columna">
+        
+        <label for="DNI"><strong>DNI:</strong><input type="text" id="DNI"></label>
+        
+        <label for="nombre"><strong>Nombre:</strong><input type="text" id="nombre"></label>
+        
+        <label for="date"><strong>Fecha de Nacimiento:</strong><input type="date" id="date"></label>
+        
+        <label for="email"><strong>Email :</strong><input type="text"  id="email"></label>
+       
+        <label for="web"><strong>Web pesonal:</strong> <input type="text" id="web"></label>
+
+        <label for="pass"><strong>Contraseña :</strong> <input type="text" id="pass"></label>
+       
+        <button type='submit' onclick="regist()">Enviar</button>
+    </fieldset>
+    </form>
+    </div>
+    <script>
+
+        function regist(){
+            const $FORM = document.getElementById('Ej1')
+            const $DNI = document.getElementById("DNI")
+            const $name = document.getElementById("nombre")
+            const $date = document.getElementById("date")
+            const $email = document.getElementById("email")
+            const $web = document.getElementById("web")
+            const $pass  = document.getElementById("pass")
+
+            const DNI = $DNI.value
+            const name = $name.value
+            const date = $date.value
+            const email = $email.value
+            const web = $web.value
+            const pass = $pass.value
+           
+            function isValidDNI(DNI){
+                    const validacion = /^\d{8}[a-zA-Z]$/;
+                    return validacion.test(DNI)
+                }
+                function isValidName(name){
+                    const validacion = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+)(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]*)?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]*)?$/;
+                    return validacion.test(name)
+                }
+                function isValidDate(date){
+                    const validacion = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/
+                    return validacion.test(date)
+                }
+                function isValidEmail(email){
+                    const validacion = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    return validacion.test(email)
+                }
+                function isValidWeb(web){
+                    const validacion = /^http:\/\/www\.[A-Za-z0-9]+\.[a-zA-Z]+$/i
+                    return validacion.test(web)
+                }
+                function isValidPass(pass){
+                    const validacion = /\w{6,8}$/;
+                    return validacion.test(pass)
+                }
+            
+
+    
+                if(DNI == false|| isValidDNI(DNI) == false){
+                    alert("El DNI no debe estar vacío y tiene que ser válido")
+                }
+                if(name == false|| isValidName(name) == false){
+                    alert("El nombre no debe estar vacío y tiene que ser válido")
+                }
+                if(date == false|| isValidDate(date) == false){
+                    alert("La fecha no debe estar vacío y tiene que ser válido")
+                }
+                if(email == false|| isValidEmail(email) == false){
+                    alert("El email no debe estar vacío y tiene que ser válido")
+                }
+                if(web == false|| isValidWeb(web) == false){
+                    alert("La web no debe estar vacío y tiene que ser válido")
+                }
+                if(pass == false|| isValidPass(pass) == false){
+                    alert("La contraseña no debe estar vacío y tiene que ser válido")
+                }
+                
+                var regUsuario = {DNI: DNI ,nombre:name, Fecha:date, Email:email, web : web, pass: pass};
+                console.log(regUsuario);
+                var newUser = JSON.stringify(regUsuario);
+                console.log(newUser);
+    
+            
+        }
+    
+    </script>
+</body>
+</html>

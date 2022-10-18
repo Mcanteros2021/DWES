@@ -1,0 +1,22 @@
+.columna{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border: 1px solid;
+    align-items: flex-start;
+    width: 50%;
+    
+    
+}
+label{
+    width: 50%;
+    
+  
+  }
+body{
+    background-image: url("maxresdefault.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+
+}
