@@ -63,8 +63,8 @@
                     return validacion.test(destinatario)
                 }
                 
-                function isValidComposicion(composicion,gramos){
-                    const validacion = gramos + /^g[A-Z]{1,2}\d*?[A-Z]{1,2}\d*?$/i
+                function isValidComposicion(composicion){
+                    const validacion = /^\d+g[A-Z]{1,2}\d*?[A-Z]{1,2}\d*?$/i
                     return validacion.test(composicion)
                 }
                 function isValidCuenta(cuenta){

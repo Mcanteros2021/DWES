@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ejercicio1.css">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h1>Formularios, Validaciones</h1>
+    <form id="Ej1" action=""></form>
+    <h2>Registro</h2>
+    <div class="columna">
+        
+        <label for="DNI"><strong>DNI</strong></label>
+        <input type="text" id="DNI">
+        <label for="nombre"><strong>Nombre</strong></label>
+        <input type="text" id="nombre">
+        <label for="apellido"><strong>Apellido</strong></label>
+        <input type="text"  id="apellido">
+        <label for="email"><strong>email</strong></label>
+        <input type="text"  id="email">
+        <label for="telefono"><strong>Telefono</strong></label>
+        <input type="text" id="telefono">
+        <textarea placeholder="Escriba aqui, por favor" id="comentario" cols="30"
+        rows="7"></textarea>
+        <label>Elija una hora:</label>
+        <input type="time" id="hora">
+        <button type='submit' onclick="regist()">Enviar</button>
+        <text id="cont"></text>
+        <button onclick="reset()">Resetear cookie</button>
+
+    </form>
+    </div>
+   
+    <script>
+        var error = false;
+
+        function eliminarCookie(cookies){
+            document.cookie = cookies + "=; max-age=0";
+            console.log(document.cookie)
+        }
+
+        function reset(){
+            eliminarCookie("cont")
+            document.getElementById("cont").innerHTML = 0
+
+        }
+
+
+
+        function regist(){
+
+            function setCookie (cname, cvalue, exdays) {
+                let d = new Date ();
+
+                d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+                let expires = "expires=" + d.toUTCString ();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+
+            function getCookie(cname) {
+                let name = cname + "=";
+                let ca = document.cookie.split(";");
+                for (let i = 0; i < ca.length; i++) {
+
+                    let c = ca[i];
+                    while (c.charAt(0) == " ") {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0 ) //Si encuentra el campo buscado
+                        return c.substring(name.length, c.length) //lo devuelve
+                }
+                return ""; //Si no devuelve vacío
+            }
+            function checkCookie() {
+                let username = getCookie("cont");
+                if (username !== "")  {
+
+                } else {
+
+                    setCookie("cont", 0, 365)
+                }
+            }
+
+            const $FORM = document.getElementById('Ej1')
+            const $DNI = document.getElementById("DNI")
+            const $name = document.getElementById("nombre")
+            const $surname = document.getElementById("apellido")
+            const $email = document.getElementById("email")
+            const $telephone = document.getElementById("telefono")
+            const $coment = document.getElementById("comentario")
+            const $time = document.getElementById("hora")
+
+
+
+            function isValidDNI(DNI){
+                    const validacion = /^\d{8}[a-zA-Z]$/;
+                    return validacion.test(DNI)
+                }
+                function isValidName(name){
+                    const validacion = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)$/;
+                    return validacion.test(name)
+                }
+                function isValidSurname(surname){
+                    const validacion = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)$/;
+                    return validacion.test(surname)
+                }
+                function isValidEmail(email){
+                    const validacion = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    return validacion.test(email)
+                }
+                function isValidTelephone(telephone){
+                    const validacion = /^\+\d{2,3}\s\d{9}$/;
+                    return validacion.test(telephone)
+                }
+                function isValidComent(coment){
+                    const validacion = /^\w{250}$/;
+                    return validacion.test(coment)
+                }
+                function isValidTime(time){
+                    const validacion = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+                    return validacion.test(time)
+                }
+           
+
+                const DNI = $DNI.value
+                const name = $name.value
+                const surname = $surname.value
+                const email = $email.value
+                const telephone = $telephone.value
+                const coment = $coment.value
+                const time = $time.value
+    
+                if(DNI === false|| isValidDNI(DNI) === false){
+                    alert("El DNI no debe estar vacío y tiene que ser válido")
+                    error = true;
+                }
+                if(name === false|| isValidName(name) === false){
+                    alert("El nombre no debe estar vacío y tiene que ser válido")
+                    error = true;
+                }
+                if(surname === false|| isValidSurname(surname) === false){
+                    alert("El apellido no debe estar vacío y tiene que ser válido")
+                    error = true;
+                }
+                if(email === false|| isValidEmail(email) === false){
+                    alert("El email no debe estar vacío y tiene que ser válido")
+                    error = true;
+                }
+                if(telephone === false|| isValidTelephone(telephone) === false){
+                    alert("El telefono no debe estar vacío y tiene que ser válido")
+                    error = true;
+                }
+                if(coment === false|| isValidComent(coment) === false){
+                    alert("El comentario no debe estar vacío y tiene que ser válido")
+                    error = true;
+                }
+                if(time === false|| isValidTime(time) === false){
+                    alert("La hora no debe estar vacío y tiene que ser válido")
+                    error = true;
+                }
+                if(error === true){
+                    checkCookie();
+                    setCookie("cont", parseInt(getCookie("cont") ) + 1 ,365)
+
+                }
+
+
+            document.getElementById("cont").innerHTML = getCookie("cont")
+
+
+                var regUsuario = {DNI: DNI ,nombre:name, apellido:surname, email:email, Telefono: telephone,
+                comentario:coment, Hora: time };
+                console.log(regUsuario);
+                var newUser = JSON.stringify(regUsuario);
+                console.log(newUser);
+    
+                
+            
+           
+    
+               
+               
+        }
+    
+    
+        
+    
+    </script>
+</body>
+</html>
