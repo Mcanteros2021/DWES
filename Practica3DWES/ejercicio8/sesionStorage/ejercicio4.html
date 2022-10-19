@@ -28,6 +28,7 @@
         <label for="cuenta"><strong>Número de cuenta bancaria :</strong> <input type="text" id="cuenta"></label>
        
         <button type='submit' onclick="regist()">Enviar</button>
+        <button onclick="rellenar()">Rellenar</button>
     </form>
     </div>
     <script>
@@ -92,13 +93,31 @@
                 if(cuenta === false|| isValidCuenta(cuenta) === false){
                     alert("No se valida")
                 }
-
+    
                 var regUsuario = {creacion: creacion ,cocinero:cocinero, destinatario:destinatario, gramos:gramos, composicion : composicion, cuenta: cuenta};
                 console.log(regUsuario);
                 var newUser = JSON.stringify(regUsuario);
                 console.log(newUser);
-    
+            if (typeof Storage !== "undefined") {
+                sessionStorage.setItem("usuario", newUser)
+
+            } else {
+                alert("Navegador no soportado")
+            }
+
+
             
+        }
+        function rellenar(){
+            let usuario = JSON.parse(sessionStorage.getItem("usuario"))
+            console.log(usuario)
+            document.getElementById("creacion").value = usuario['creacion']
+            document.getElementById("cocinero").value = usuario['cocinero']
+            document.getElementById("destinatario").value = usuario['destinatario']
+            document.getElementById("gramos").value = usuario['gramos']
+            document.getElementById("composicion").value = usuario['composicion']
+            document.getElementById("cuenta").value = usuario['cuenta']
+
         }
     
     </script>
